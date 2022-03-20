@@ -9,8 +9,7 @@ import {
 const initialState = {
     apiState: "", // loading, success, error
     message: "",
-    total_records: 0,
-    sales_order: [],
+    blogs: [],
     params: "",
 }
 
@@ -27,9 +26,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 apiState: "success",
-                message: action.response.data.message,
-                total_records: action.response.data.total_records,
-                sales_order: action.response.data.sales_order,
+                blogs: action.response.data
             }
 
         case GET_BLOG_POSTS_FAIL:
