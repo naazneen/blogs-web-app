@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 // actions
 import { getBlogPostById } from "../../action/getBlogPostByIdAction"
 import { getComments } from "../../action/getCommentsAction"
+import Comments from "../../components/Comments/Comments";
 
 
 const Post = props => {
@@ -34,6 +35,17 @@ const Post = props => {
                     <p> {getBlogPostByIdState.blog.body}</p>
                 </>
                 )}
+            <h2>Comments</h2>
+            <div style={{ "display": "flex", "flexDirection": "row", "flex-wrap": "wrap", "margin": "20px" }} >
+                {getCommentsState.apiState == "success" && getCommentsState.comments &&
+                    (getCommentsState.comments.map(comment => {
+                        return (<div style={{ "margin": "12px" }}>
+                            <Comments name={comment.name} body={comment.body} />
+                        </div>)
+                    })
+
+                    )}
+            </div>
         </div>
     )
 }

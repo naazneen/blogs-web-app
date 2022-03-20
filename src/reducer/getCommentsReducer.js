@@ -9,7 +9,7 @@ import {
 const initialState = {
     apiState: "", // loading, success, error
     message: "",
-    blogs: [],
+    comments: [],
     params: "",
 }
 
@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 apiState: "success",
-                blogs: action.response.data
+                comments: action.response.data
             }
 
         case GET_COMMENTS_FAIL:
