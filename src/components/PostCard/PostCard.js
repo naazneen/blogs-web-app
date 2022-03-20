@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Card } from "antd"
+import { Link } from "react-router-dom"
 
 const PostCard = props => {
 
     return (
-        <Card title={props.title} extra={<a href="#">More</a>} style={{ width: 300 }}>
+        <Card title={props.title} extra={<Link to={`/post/${props.id}`}>More</Link>} style={{ width: 300 }}>
             <p>{props.body}</p>
         </Card>
     )

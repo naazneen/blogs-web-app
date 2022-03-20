@@ -7,6 +7,8 @@ import reducer from './reducer'
 import getBlogPostsSaga from './saga/getBlogPostsSaga'
 
 // create the saga middleware
+import getBlogPostByIdSaga from './saga/getBlogPostByIdSaga'
+import getCommentsSaga from './saga/getCommentsSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 // mount it on the Store
@@ -19,5 +21,7 @@ const store = createStore(
 
 // then run the saga
 sagaMiddleware.run(getBlogPostsSaga)
+sagaMiddleware.run(getBlogPostByIdSaga)
+sagaMiddleware.run(getCommentsSaga)
 
 export default store
